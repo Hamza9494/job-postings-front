@@ -54,10 +54,10 @@ const Signup = () => {
     if (submit && Object.keys(errors).length === 0)
       axios
         .post(
-          "http://localhost/projects/job-posting-backend/process_signup.php",
+          "http://localhost/projects/job-postings-backend/process_signup.php",
           signup_data
         )
-        .then((data) => console.log(data));
+        .then((data) => console.log(data.data));
   };
   return (
     <div className="signup-container">
