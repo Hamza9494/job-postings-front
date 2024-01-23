@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submit, setSubmit] = useState(false);
@@ -16,7 +20,10 @@ const Login = () => {
           "http://localhost/projects/job-postings-backend/process_login.php",
           login_data
         )
-        .then((res) => localStorage.setItem("token", res.data.token))
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          navigate("/home");
+        })
         .catch((err) => console.log(`the error is ${err}`));
     }
   };
