@@ -1,13 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-<<<<<<< HEAD
-import "./activate.css";
+ import "./activate.css";
 
-=======
-import "./activate.css"
->>>>>>> e6a7268cfcf20be24d3e36cccf1424020a81992e
-const Activate = () => {
+ import "./activate.css"
+ const Activate = () => {
   const [activated, setActivated] = useState(false);
   let { id } = useParams();
 
