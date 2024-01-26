@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./signup.css";
 
 const Signup = () => {
@@ -12,6 +13,8 @@ const Signup = () => {
 
   const [submit, setSubmit] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     steInputFields({ ...inputFields, [e.target.name]: e.target.value });
@@ -57,7 +60,7 @@ const Signup = () => {
           "http://localhost/projects/job-postings-backend/process_signup.php",
           signup_data
         )
-        .then((data) => console.log(data.data));
+        .then((data) => navigate("/signup_success"));
   };
   return (
     <div className="signup-container">

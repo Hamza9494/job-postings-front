@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
- import "./activate.css";
+import "./activate.css";
 
- import "./activate.css"
- const Activate = () => {
+import "./activate.css";
+const Activate = () => {
   const [activated, setActivated] = useState(false);
   let { id } = useParams();
 
@@ -12,9 +12,12 @@ import { useParams, Link } from "react-router-dom";
     axios
       .post(
         "http://localhost/projects/job-postings-backend/activate-account.php",
-        { token: id }
+        [id]
       )
-      .then((res) => setActivated(true))
+      .then((res) => {
+        console.log(res.data);
+        setActivated(true);
+      })
       .catch((err) => console.log(`error is ${err}`));
   }
 

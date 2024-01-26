@@ -5,6 +5,7 @@ import Activate from "./Activate";
 import Login from "./Login";
 import Home from "./Home";
 import Forgot_password from "./Forgot_password";
+import Signup_success from "./Signup_success";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               element={<Forgot_password />}
             ></Route>
             <Route path="/home" element={<Home />}></Route>
+            <Route path="/signup_success" element={<Signup_success />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/activate/:id" element={<Activate />}></Route>
           </Routes>
