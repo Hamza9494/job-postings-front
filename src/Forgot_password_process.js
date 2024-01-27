@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 const Forgot_password_process = () => {
   const { id } = useParams();
   const [password, setPassword] = useState("");
   const [password_confirm, setPassword_confirm] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +20,12 @@ const Forgot_password_process = () => {
         "http://localhost/projects/job-postings-backend/process_reset_password.php",
         new_password
       )
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.done) {
+          navigate("/reset_password_success");
+        }
+      })
       .catch((err) => console.log(err));
   };
   return (
