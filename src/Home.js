@@ -7,13 +7,12 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost/projects/job-postings-backend/index.php", {
-        token,
+      .get("http://localhost/projects/job-postings-backend/index.php", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")} `,
+        },
       })
-      .then((res) => {
-        console.log(res.data);
-        setUsername(res.data[0].name);
-      })
+      .then((res) => console.log(res.data))
       .catch((err) => console.log(`error is ${err}`));
   }, []);
   return (
