@@ -1,0 +1,47 @@
+body {
+  background-color: #f5f5f5;
+}
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-form {
+  width: 500px;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+}
+.form-control-login {
+  margin: 1rem 0;
+}
+.form-control-login label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+.form-control-login input {
+  width: 100%;
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.btn-login {
+  background-color: #1a73e8;
+  color: #fff;
+  display: block;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.login-forget {
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
+}

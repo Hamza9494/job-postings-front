@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./login.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form">
         <div className="form-control-login">
           <label htmlFor="email">email </label>
           <input
@@ -57,7 +58,9 @@ const Login = () => {
           />
         </div>
         <button className="btn-login">Login</button>
-        <Link to={"/Forgot_password"}> forgot password?</Link>
+        <Link className="login-forget" to={"/Forgot_password"}>
+          forgot password?
+        </Link>
       </form>
     </div>
   );

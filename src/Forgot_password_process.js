@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "./forget_password_process.css";
+
 const Forgot_password_process = () => {
   const { id } = useParams();
   const [password, setPassword] = useState("");
@@ -31,7 +33,7 @@ const Forgot_password_process = () => {
   return (
     <div className="process-forgot-password">
       <h1>Reset Password</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="forget-process-form">
         <div className="reset-form-control">
           <label htmlFor="password">Password</label>
           <input
@@ -53,7 +55,7 @@ const Forgot_password_process = () => {
             onChange={(e) => setPassword_confirm(e.target.value)}
           />
         </div>
-        <button>reset</button>
+        <button className="forget-process-btn">reset</button>
       </form>
     </div>
   );

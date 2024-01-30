@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const token = localStorage.getItem("token");
+  console.log(token);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
     axios
       .get("http://localhost/projects/job-postings-backend/index.php", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")} `,
+          Authorization: `Bearer ${token} `,
         },
       })
       .then((res) => console.log(res.data))

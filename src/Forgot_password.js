@@ -20,16 +20,18 @@ const Forgot_password = () => {
   return (
     <div className="forgot-password">
       <h1>forgot password</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="forgot-form">
         <div className="form-control-forgot">
           <label htmlFor="email">Enter email</label>
           <input
+            id="email"
+            name="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button>submit</button>
+        <button className="btn-forgot">submit</button>
       </form>
     </div>
   );
