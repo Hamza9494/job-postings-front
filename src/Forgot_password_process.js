@@ -33,7 +33,15 @@ const Forgot_password_process = () => {
   return (
     <div className="process-forgot-password">
       <h1>Reset Password</h1>
-      <form onSubmit={handleSubmit} className="forget-process-form">
+      <form
+        onSubmit={handleSubmit}
+        className="forget-process-form"
+        style={{
+          width: "500px",
+          margin: "1rem auto",
+          padding: "1rem 2rem",
+        }}
+      >
         <div className="reset-form-control">
           <label htmlFor="password">Password</label>
           <input
