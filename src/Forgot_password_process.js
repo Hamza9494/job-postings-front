@@ -19,7 +19,7 @@ const Forgot_password_process = () => {
     };
     axios
       .post(
-        "http://localhost/projects/job-postings-backend/process_reset_password.php",
+        "http://localhost/projects/jobb-postings-backend/process_reset_password.php",
         new_password
       )
       .then((res) => {

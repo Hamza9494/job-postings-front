@@ -57,7 +57,7 @@ const Signup = () => {
     if (submit && Object.keys(errors).length === 0)
       axios
         .post(
-          "http://localhost/projects/job-postings-backend/process_signup.php",
+          "http://localhost/projects/jobb-postings-backend/process_signup.php",
           signup_data
         )
         .then((data) => navigate("/signup_success"));

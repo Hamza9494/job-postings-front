@@ -11,7 +11,7 @@ const Activate = () => {
   if (id) {
     axios
       .post(
-        "http://localhost/projects/job-postings-backend/activate-account.php",
+        "http://localhost/projects/jobb-postings-backend/activate-account.php",
         [id]
       )
       .then((res) => {

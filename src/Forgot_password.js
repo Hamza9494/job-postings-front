@@ -9,7 +9,7 @@ const Forgot_password = () => {
     e.preventDefault();
     axios
       .post(
-        "http://localhost/projects/job-postings-backend/send_reset_mail.php",
+        "http://localhost/projects/jobb-postings-backend/send_reset_mail.php",
         { email }
       )
       .then((res) => {
