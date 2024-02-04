@@ -9,6 +9,7 @@ import Signup_success from "./Signup_success";
 import Forgot_password_process from "./Forgot_password_process";
 import Email_sent from "./Email_sent";
 import Reset_password_success from "./Reset_password_success";
+import Add from "./Add";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               element={<Reset_password_success />}
             ></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/add" element={<Add />}></Route>
             <Route path="/activate/:id" element={<Activate />}></Route>
           </Routes>
         </div>

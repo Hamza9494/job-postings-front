@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const token = localStorage.getItem("token");
-  console.log(token);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
@@ -14,14 +14,17 @@ const Home = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        setUsername(res.data.name);
       })
       .catch((err) => console.log(`error is ${err}`));
   }, []);
   return (
     <div className="home-container">
       <h1>Home</h1>
-      {username && <p> hello {username} </p>}
+      {username && <p> welcome {username} </p>}
+      <button>
+        <Link to={"/add"}>Add blog</Link>
+      </button>
     </div>
   );
 };
