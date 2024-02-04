@@ -17,12 +17,13 @@ const Login = () => {
       const login_data = { email, password };
       axios
         .post(
-          "http://localhost/projects/job-postings-backend/process_login.php",
+          "http://localhost/projects/jobb-postings-backend/process_login.php",
           login_data
         )
         .then((res) => {
           console.log(res.data);
           localStorage.setItem("token", res.data.token);
+          navigate("/home");
         })
         .catch((err) => console.log(`the error is ${err}`));
     }

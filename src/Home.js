@@ -8,12 +8,14 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost/projects/job-postings-backend/index.php", {
+      .get("http://localhost/projects/jobb-postings-backend/index.php", {
         headers: {
           Authorization: `Bearer ${token} `,
         },
       })
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        console.log(res.data);
+      })
       .catch((err) => console.log(`error is ${err}`));
   }, []);
   return (
