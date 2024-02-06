@@ -5,6 +5,7 @@ import Show_job from "./Show_job";
 
 const Job_details = () => {
   const [blog_details, setBlog_details] = useState({});
+  const [ispending, setIspending] = useState(true);
 
   let { id } = useParams();
   const get_job_details = async () => {
@@ -18,6 +19,7 @@ const Job_details = () => {
     );
     const data = await res.data;
     setBlog_details(data);
+    setIspending(false);
   };
   useEffect(() => {
     get_job_details();
