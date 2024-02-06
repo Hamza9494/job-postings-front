@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.job-info {
+  width: 400px;
+  margin: 1rem auto;
+  background-color: red;
+  padding: 10px 20px;
+}
