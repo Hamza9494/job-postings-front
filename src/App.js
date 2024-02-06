@@ -11,6 +11,7 @@ import Email_sent from "./Email_sent";
 import Reset_password_success from "./Reset_password_success";
 import Add from "./Add";
 import Job_listings from "./Job_listings";
+import Job_details from "./Job_details";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/add" element={<Add />}></Route>
             <Route path="/job_listings" element={<Job_listings />}></Route>
             <Route path="/activate/:id" element={<Activate />}></Route>
+            <Route path="/job_details/:id" element={<Job_details />}></Route>
           </Routes>
         </div>
       </div>

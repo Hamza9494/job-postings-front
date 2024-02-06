@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./job_listings.css";
 
 const Job_listings = () => {
   const [jobs, setJobs] = useState([]);
@@ -24,9 +26,13 @@ const Job_listings = () => {
       <h1>Job listings</h1>
       <div className="job-listings">
         {jobs.map((job) => (
-          <div className="job" key={job.id}>
-            {job.description}
-          </div>
+          <Link key={job.id} to={`/job_details/${job.id}`}>
+            <div className="single-job-listing">
+              <h3>{job.technologies}</h3>
+              <p>${job.price}</p>
+              <p> {job.experience} </p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
