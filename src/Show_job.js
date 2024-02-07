@@ -1,6 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./show_job.css";
+import axios from "axios";
 const Show_job = ({ job_listing }) => {
+  const navigate = useNavigate();
+  const handleDelete = () => {
+    axios
+      .delete(
+        `http://localhost/projects/job-postings-api/jobs.php/${job_listing.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then(() => navigate("/job_listings"))
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="show-job">
       <h1>Job Details</h1>
@@ -13,7 +28,9 @@ const Show_job = ({ job_listing }) => {
         <Link className="update" to={`/update_job/${job_listing.id}`}>
           update
         </Link>
-        <Link className="delete">delete</Link>
+        <Link className="delete" onClick={handleDelete}>
+          delete
+        </Link>
       </div>
     </div>
   );
