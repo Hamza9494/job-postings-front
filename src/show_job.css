@@ -14,8 +14,25 @@
 p {
   margin-bottom: 10px;
 }
-.job-info button {
+.update {
   background-color: #33b249;
+  text-align: center;
+  color: #fff;
+  display: block;
+  border: none;
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.delete {
+  background-color: #eb421d;
+  text-align: center;
   color: #fff;
   display: block;
   border: none;

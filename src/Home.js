@@ -23,7 +23,10 @@ const Home = () => {
       <h1>Home</h1>
       {username && <p> welcome {username} </p>}
       <button>
-        <Link to={"/add"}>Add blog</Link>
+        <Link to={"/add"}>Add job listing</Link>
+      </button>
+      <button>
+        <Link to={"/job_listings"}>view my listings</Link>
       </button>
     </div>
   );

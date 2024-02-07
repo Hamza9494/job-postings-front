@@ -12,6 +12,7 @@ import Reset_password_success from "./Reset_password_success";
 import Add from "./Add";
 import Job_listings from "./Job_listings";
 import Job_details from "./Job_details";
+import Update_job from "./Update_job";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/job_listings" element={<Job_listings />}></Route>
             <Route path="/activate/:id" element={<Activate />}></Route>
             <Route path="/job_details/:id" element={<Job_details />}></Route>
+            <Route path="/update_job/:id" element={<Update_job />}></Route>
           </Routes>
         </div>
       </div>
