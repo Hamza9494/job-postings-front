@@ -24,7 +24,7 @@ const Job_listings = () => {
   return (
     <div className="job-listings">
       <h1>Job listings</h1>
-      <div className="job-listings">
+      <div className="job-listings-container">
         {jobs.map((job) => (
           <Link key={job.id} to={`/job_details/${job.id}`}>
             <div className="single-job-listing">

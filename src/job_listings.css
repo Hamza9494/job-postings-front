@@ -1,8 +1,14 @@
 .single-job-listing {
-  width: 400px;
+  width: 250px;
   margin: 1rem auto;
   padding: 20px 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.job-listings {
+  padding: 15px 15px;
+  width: auto;
+  margin: 0 auto;
+  max-width: 900px;
 }
 .single-job-listing h3,
 p {
@@ -11,4 +17,12 @@ p {
 a {
   text-decoration: none;
   color: black;
+}
+
+@media (min-width: 800px) {
+  .job-listings-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }

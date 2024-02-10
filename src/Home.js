@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./home.css";
 
 const Home = () => {
   const token = localStorage.getItem("token");
@@ -19,15 +20,22 @@ const Home = () => {
       .catch((err) => console.log(`error is ${err}`));
   }, []);
   return (
-    <div className="home-container">
+    <div className="home ">
       <h1>Home</h1>
-      {username && <p> welcome {username} </p>}
-      <button>
-        <Link to={"/add"}>Add job listing</Link>
-      </button>
-      <button>
-        <Link to={"/job_listings"}>view my listings</Link>
-      </button>
+      <div className="home-container">
+        <div>{username && <h3> welcome {username} </h3>}</div>
+
+        <div className="home-btn-container">
+          <Link to={"/add"}>
+            <button className="home-add-btn">add job listing</button>
+          </Link>
+
+          <Link to={"/job_listings"}>
+            <button className="home-view-btn">view my listings</button>
+          </Link>
+        </div>
+        <div>logout</div>
+      </div>
     </div>
   );
 };
