@@ -11,6 +11,12 @@ const Signup = () => {
     password_confirm: "",
   });
 
+  const [userType, setUserType] = useState(" ");
+
+  const onOptionChange = (e) => {
+    setUserType(e.target.value);
+  };
+
   const [submit, setSubmit] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -50,6 +56,7 @@ const Signup = () => {
       email: inputFields.email,
       password: inputFields.password,
       password_confirm: inputFields.password_confirm,
+      type: userType,
     };
 
     setErrors(validateFields(signup_data));
@@ -119,8 +126,26 @@ const Signup = () => {
             onChange={handleChange}
           />
         </div>
+        <input
+          type="radio"
+          name="type"
+          value="client"
+          id="client"
+          onChange={onOptionChange}
+        />
+        <label htmlFor="regular">Regular</label>
+
+        <input
+          type="radio"
+          name="type"
+          value="freelancer"
+          id="freelancer"
+          onChange={onOptionChange}
+        />
+        <label htmlFor="medium">Medium</label>
         <button className="btn-signup">Signup </button>
       </form>
+      <p> {userType} </p>
     </div>
   );
 };

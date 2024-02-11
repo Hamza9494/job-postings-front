@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./home.css";
+import Client from "./Client";
+import Freelancer from "./Freelancer";
 
 const Home = () => {
   const token = localStorage.getItem("token");
   const [username, setUsername] = useState("");
+  const [userType, setUserType] = useState("");
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     axios
@@ -15,27 +18,23 @@ const Home = () => {
         },
       })
       .then((res) => {
+        setUserType(res.data.type);
         setUsername(res.data.name);
+        setUser(res.data);
       })
       .catch((err) => console.log(`error is ${err}`));
   }, []);
   return (
     <div className="home ">
       <h1>Home</h1>
-      <div className="home-container">
-        <div>{username && <h3> welcome {username} </h3>}</div>
-
-        <div className="home-btn-container">
-          <Link to={"/add"}>
-            <button className="home-add-btn">add job listing</button>
-          </Link>
-
-          <Link to={"/job_listings"}>
-            <button className="home-view-btn">view my listings</button>
-          </Link>
-        </div>
-        <div>logout</div>
-      </div>
+      <>
+        {" "}
+        {userType === "client" ? (
+          <Client user={user} />
+        ) : (
+          <Freelancer user={user} />
+        )}{" "}
+      </>
     </div>
   );
 };
