@@ -14,7 +14,7 @@ const Client = ({ user }) => {
           <div className={`nav-links ${showNav && "nav-links active"}`}>
             <ul>
               <li>
-                <Link className="nav-link" to="/listings">
+                <Link className="nav-link" to="/job_listings">
                   My listings
                 </Link>
               </li>
