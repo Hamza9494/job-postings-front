@@ -27,12 +27,11 @@ const Home = () => {
   return (
     <div className="home ">
       <>
-        {" "}
         {userType === "client" ? (
           <Client user={user} />
         ) : (
           <Freelancer user={user} />
-        )}{" "}
+        )}
       </>
     </div>
   );

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./job_listings.css";
+import Show_jobs from "./Show_jobs";
 
 const Job_listings = () => {
   const [jobs, setJobs] = useState([]);
@@ -21,22 +21,7 @@ const Job_listings = () => {
     get_data();
   }, []);
 
-  return (
-    <div className="job-listings">
-      <h1>Job listings</h1>
-      <div className="job-listings-container">
-        {jobs.map((job) => (
-          <Link key={job.id} to={`/job_details/${job.id}`}>
-            <div className="single-job-listing">
-              <h3>{job.technologies}</h3>
-              <p>${job.price}</p>
-              <p> {job.experience} </p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+  return <> {jobs && <Show_jobs jobs={jobs} />}</>;
 };
 
 export default Job_listings;
