@@ -1,7 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./show_job.css";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import Freelancer_job_listing from "./Freelancer_job_listing";
+import Client_job_listing from "./Client_job_listing";
 const Show_job = ({ job_listing }) => {
+  const [userType, setUserType] = useState("");
   const navigate = useNavigate();
   const handleDelete = () => {
     axios
@@ -16,22 +19,31 @@ const Show_job = ({ job_listing }) => {
       .then(() => navigate("/job_listings"))
       .catch((err) => console.log(err));
   };
+
+  useEffect(() => {
+    axios
+      .get("http://localhost/projects/jobb-postings-backend/index.php", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")} `,
+        },
+      })
+      .then((res) => {
+        setUserType(res.data.type);
+      });
+  }, []);
   return (
     <div className="show-job">
-      <h1>Job Details</h1>
-      <div className="job-info">
-        <h3> title: {job_listing.title}</h3>
-        <p> tech: {job_listing.technologies} </p>
-        <p> job description: {job_listing.description} </p>
-        <p> experience: {job_listing.experience} </p>
-        <p> price: ${job_listing.price} </p>
-        <Link className="update" to={`/update_job/${job_listing.id}`}>
-          update
-        </Link>
-        <Link className="delete" onClick={handleDelete}>
-          delete
-        </Link>
-      </div>
+      {userType === "freelancer" ? (
+        <Freelancer_job_listing
+          job_listing={job_listing}
+          handleDelete={handleDelete}
+        />
+      ) : (
+        <Client_job_listing
+          job_listing={job_listing}
+          handleDelet={handleDelete}
+        />
+      )}
     </div>
   );
 };

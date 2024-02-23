@@ -133,7 +133,7 @@ const Signup = () => {
           id="client"
           onChange={onOptionChange}
         />
-        <label htmlFor="regular">Regular</label>
+        <label htmlFor="freelancer">Freelancer</label>
 
         <input
           type="radio"
@@ -142,7 +142,7 @@ const Signup = () => {
           id="freelancer"
           onChange={onOptionChange}
         />
-        <label htmlFor="medium">Medium</label>
+        <label htmlFor="cllient">Client</label>
         <button className="btn-signup">Signup </button>
       </form>
       <p> {userType} </p>
