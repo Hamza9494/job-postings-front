@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Show_job from "./Show_job";
 
 const Job_details = () => {
-  const [blog_details, setBlog_details] = useState({});
+  const [job_details, setJob_details] = useState({});
 
   let { id } = useParams();
   const get_job_details = async () => {
@@ -17,14 +17,14 @@ const Job_details = () => {
       }
     );
     const data = await res.data;
-    setBlog_details(data);
+    setJob_details(data);
   };
   useEffect(() => {
     get_job_details();
   }, []);
   return (
     <div className="job-details">
-      {blog_details && <Show_job job_listing={blog_details} />}
+      {job_details && <Show_job job_listing={job_details} />}
     </div>
   );
 };
