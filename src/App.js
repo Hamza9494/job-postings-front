@@ -17,6 +17,7 @@ import Client from "./Client";
 import Check_login from "./Login_form";
 import Login_form from "./Login_form";
 import Freelancer from "./Freelancer";
+import Offer from "./Offer";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
               element={<Reset_password_success />}
             ></Route>
             <Route path="/login" element={<Login />}></Route>
+            <Route path="/offer" element={<Offer />}></Route>
             <Route path="/freelancer" element={<Freelancer />}></Route>
             <Route path="/login_form" element={<Login_form />}></Route>
             <Route path="/client" element={<Client />}></Route>

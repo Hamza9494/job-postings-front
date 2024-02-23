@@ -20,6 +20,10 @@ const Show_job = ({ job_listing }) => {
       .catch((err) => console.log(err));
   };
 
+  const handleClick = () => {
+    alert("i am clicked");
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost/projects/jobb-postings-backend/index.php", {
@@ -36,7 +40,7 @@ const Show_job = ({ job_listing }) => {
       {userType === "freelancer" ? (
         <Freelancer_job_listing
           job_listing={job_listing}
-          handleDelete={handleDelete}
+          handleClick={handleClick}
         />
       ) : (
         <Client_job_listing
