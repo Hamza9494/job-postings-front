@@ -16,7 +16,7 @@ const Freelancer = ({ user }) => {
   }, []);
   return (
     <div className="freelancer">
-      <h1>freelancer</h1>
+      <h1>freelancer page</h1>
       <h2> welcome {user.name} </h2>
       <h2> {user.type} </h2>
       {jobs && <Show_jobs jobs={jobs} />}
