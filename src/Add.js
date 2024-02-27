@@ -11,8 +11,6 @@ const Add = () => {
   const [technologies, setTechnologies] = useState("");
   const [experience, setExperience] = useState("");
 
-  const name = "alex something";
-
   useEffect(() => {
     axios
       .get("http://localhost/projects/jobb-postings-backend/index.php", {
