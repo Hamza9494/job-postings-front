@@ -18,7 +18,10 @@ const Add = () => {
           Authorization: `Bearer ${localStorage.getItem("token")} `,
         },
       })
-      .then((res) => setClient(res.data.name));
+      .then((res) => {
+        setClient(res.data.name);
+        console.log(res.data);
+      });
   }, []);
 
   const navigate = useNavigate();

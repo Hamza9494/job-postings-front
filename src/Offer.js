@@ -1,5 +1,6 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./offer.css";
 
 const Offer = () => {
   const [inputFields, steInputFields] = useState({
@@ -8,7 +9,24 @@ const Offer = () => {
     price: "",
   });
 
+  const [freelancerName, setFreelanceName] = useState("");
+  const [user_id, set_user_id] = useState("");
+
   const [submit, setSubmit] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost/projects/jobb-postings-backend/index.php", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")} `,
+        },
+      })
+      .then((res) => {
+        setFreelanceName(res.data.name);
+        set_user_id(res.data.id);
+      })
+      .catch((err) => console.log(`error is ${err}`));
+  }, []);
 
   const handleChange = (e) => {
     steInputFields({ ...inputFields, [e.target.name]: e.target.value });
@@ -22,6 +40,8 @@ const Offer = () => {
         title: inputFields.title,
         description: inputFields.description,
         price: `$${inputFields.price}`,
+        freelancerName,
+        user_id,
       };
       axios
         .post(
@@ -62,7 +82,6 @@ const Offer = () => {
         <div className="form-control">
           <label htmlFor="description">description </label>
           <input
-            type="text"
             id="description"
             name="description"
             value={inputFields.description}
